@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5697863146553136355}
   - component: {fileID: 8550198585634967319}
   - component: {fileID: 6276195864105181486}
+  - component: {fileID: 2296827894605155439}
   m_Layer: 0
   m_Name: Ground Tiles_4
   m_TagString: Untagged
@@ -119,3 +120,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212362a6c6c8879469b98f8cd05c85e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2296827894605155439
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120088546332722173}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8fbf39cfdc87d984c83abff99bd760c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
