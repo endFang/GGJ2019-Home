@@ -5,20 +5,19 @@ using UnityEngine;
 public class RandomControls : MonoBehaviour
 {
     public Rigidbody2D rgdbdy2;
-    private Vector2 velocityX;
-    private Vector2 velocityX2;
-    public Vector3 velocityY;
-    public float speedx;
-    public float speedy;
-    bool ground = false;
+    public float jumpForce;
+    public float moveHorizontal;
+
+    private Vector3 velocityY;
+
+    bool isGrounded = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rgdbdy2 = GetComponent<Rigidbody2D>();
-        velocityX = new Vector2(speedx, 0.0f);
-        velocityX2 = new Vector2(-speedx, 0.0f);
-        velocityY = new Vector3(0.0f, speedy, 0.0f);
+        velocityY = new Vector3(0.0f, jumpForce, 0.0f);
 
     }
 
@@ -34,27 +33,28 @@ public class RandomControls : MonoBehaviour
     
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //if(ground == true)
-            //{
+            if(isGrounded == true)
+            { 
                rgdbdy2.AddForce(velocityY);//jump
-            //}
-            ground = false;
+            }
+            isGrounded = false;
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        isGrounded = true;
         Debug.Log(collision.collider.name);
     }
     void move()
     {
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            rgdbdy2.velocity = new Vector3(1, rgdbdy2.velocity.y, 0);
+            rgdbdy2.velocity = new Vector3(moveHorizontal, rgdbdy2.velocity.y, 0);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rgdbdy2.velocity = new Vector3(1, rgdbdy2.velocity.y, 0);
+            rgdbdy2.velocity = new Vector3(-moveHorizontal, rgdbdy2.velocity.y, 0);
         }
     }
 }

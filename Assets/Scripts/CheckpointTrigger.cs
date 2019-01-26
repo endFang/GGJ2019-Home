@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Killzone : MonoBehaviour
+public class CheckpointTrigger : MonoBehaviour
 {
 	private void OnTriggerEnter2D(Collider2D other)
 	{
@@ -8,6 +8,6 @@ public class Killzone : MonoBehaviour
 
 		if (playerRespawn == null) return;
 
-		playerRespawn.Kill();
+		playerRespawn.checkpointPosition = transform.position;
 	}
 }
