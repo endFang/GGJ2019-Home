@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class Typewriter : MonoBehaviour
 {
-	private Text text;
-
 	public float startDelay;
 	public float interval;
 	public float endDelay;
@@ -15,14 +13,16 @@ public class Typewriter : MonoBehaviour
 
 	private IEnumerator Start()
 	{
-		string originalText = text.text;
-		text.text = "";
+		var textComponent = GetComponent<Text>();
+		
+		string originalText = textComponent.text;
+		textComponent.text = "";
 
 		yield return new WaitForSeconds(startDelay);
 
 		foreach (char c in originalText)
 		{
-			text.text += c;
+			textComponent.text += c;
 			yield return new WaitForSeconds(interval);
 		}
 

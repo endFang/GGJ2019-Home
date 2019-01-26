@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 160977190}
   - component: {fileID: 160977192}
   - component: {fileID: 160977191}
+  - component: {fileID: 160977193}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -365,6 +366,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160977189}
   m_CullTransparentMesh: 0
+--- !u!114 &160977193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160977189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210a6fa945fa7b54abb5a54b522c0c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 0
+  interval: 0.1
+  endDelay: 0
+  onEnd:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &439618526
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rgdbdy2: {fileID: 439618529}
   jumpForce: 1
-  moveHorizontal: 1
+  moveHorizontal: 5
 --- !u!1 &480036897
 GameObject:
   m_ObjectHideFlags: 0
