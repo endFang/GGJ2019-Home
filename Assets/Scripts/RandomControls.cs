@@ -7,8 +7,9 @@ public class RandomControls : MonoBehaviour
     public Rigidbody2D rgdbdy2;
     public float jumpForce;
     public float moveHorizontal;
-
+    public Collider2D playerfeetCollider;
     private Vector3 velocityY;
+    private int layerMask;
 
     bool isGrounded = false;
 
@@ -18,7 +19,8 @@ public class RandomControls : MonoBehaviour
     {
         rgdbdy2 = GetComponent<Rigidbody2D>();
         velocityY = new Vector3(0.0f, jumpForce, 0.0f);
-
+        layerMask = 1 << 8;
+        layerMask = ~layerMask;
     }
 
     // Update is called once per frame
@@ -30,21 +32,32 @@ public class RandomControls : MonoBehaviour
     }
     void jump()
     {
-    
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && isGrounded == true)
         {
-            if(isGrounded == true)
-            { 
-               rgdbdy2.AddForce(velocityY, ForceMode2D.Impulse);//jump
-            }
+            rgdbdy2.AddForce(new Vector3(0.0f, jumpForce, 0.0f), ForceMode2D.Impulse);//jump
             isGrounded = false;
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+   void OnCollisionStay2D(Collision2D other)
     {
-        isGrounded = true;
-        Debug.Log(collision.collider.name);
+        if (other.collider.CompareTag("Ground")){
+            Vector2 feetPosition = new Vector2(this.transform.position.x, playerfeetCollider.bounds.min.y);
+            RaycastHit2D feetSensor = Physics2D.Raycast(feetPosition, Vector2.down, 0.1f, layerMask);
+           
+            if (feetSensor && feetSensor.collider.CompareTag("Ground"))
+            {
+                isGrounded = true;
+            }
+        }
+        
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground")){
+            isGrounded = false;
+        }
     }
     void move()
     {

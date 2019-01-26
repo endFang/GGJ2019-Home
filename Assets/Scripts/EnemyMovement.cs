@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public Rigidbody2D rgdbdy2;
-
+    
     Transform[] wayPoints;
     public float movespeed;
     public Vector2 maxDistance;
@@ -27,6 +27,6 @@ public class EnemyMovement : MonoBehaviour
 
     void move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, wayPoints[wayPointIndex].transform.position, movespeed * Time.deltaTime);
+       // transform.position = Vector2.MoveTowards(transform.position, wayPoints[wayPointIndex].transform.position, movespeed * Time.deltaTime);
     }
 }
