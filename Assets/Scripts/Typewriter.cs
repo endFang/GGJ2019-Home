@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Typewriter : MonoBehaviour
 {
 	public float startDelay;
-	public float interval;
+	public float interval = 0.1f;
 	public float endDelay;
 
 	public UnityEvent onEnd;
