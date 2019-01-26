@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class PlayerRespawn : MonoBehaviour
 {
+	[HideInInspector]
 	public Vector3 checkpointPosition;
 
 	public UnityEvent afterDeath;
