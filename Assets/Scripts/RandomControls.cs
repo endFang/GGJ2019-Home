@@ -31,11 +31,11 @@ public class RandomControls : MonoBehaviour
     void jump()
     {
     
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             if(isGrounded == true)
             { 
-               rgdbdy2.AddForce(velocityY);//jump
+               rgdbdy2.AddForce(velocityY, ForceMode2D.Impulse);//jump
             }
             isGrounded = false;
         }
