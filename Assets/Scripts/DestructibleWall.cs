@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class DestroyScript : MonoBehaviour
+public class DestructibleWall : MonoBehaviour
 {
     private Animator anim;
-    private Collider2D collider;
+    private new Collider2D collider;
     
     void Start()
     {
