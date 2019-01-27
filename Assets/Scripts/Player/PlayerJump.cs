@@ -10,10 +10,13 @@ public class PlayerJump : MonoBehaviour
     public bool hasWallJumped;
     
 	private Rigidbody2D rb2d;
+	private Animator anim;
+	private static readonly int isJumpKey = Animator.StringToHash("IsJump");
 
 	private void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
         hasWallJumped = false;
     }
 
@@ -23,8 +26,9 @@ public class PlayerJump : MonoBehaviour
 		{
 			rb2d.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
 			grounded = false;
-            
 		}
+		
+		anim.SetBool(isJumpKey, !grounded);
 	}
 
 	private void OnCollisionStay2D(Collision2D other)
@@ -48,6 +52,7 @@ public class PlayerJump : MonoBehaviour
                 grounded = true;
                 hasWallJumped = false;
             }
+            
             else if (!hasWallJumped && Input.GetKeyDown(KeyCode.Space))
             {
                 rb2d.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
