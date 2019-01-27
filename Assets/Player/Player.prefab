@@ -14,6 +14,10 @@ GameObject:
   - component: {fileID: 4065240735961190665}
   - component: {fileID: 6311907189735979390}
   - component: {fileID: 2944230112460559881}
+  - component: {fileID: 1032281763895290480}
+  - component: {fileID: 4274703001094985934}
+  - component: {fileID: 3955520342396342033}
+  - component: {fileID: 2819902824036448336}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -162,3 +166,75 @@ MonoBehaviour:
   jumpForce: 5
   moveHorizontal: 1
   playerfeetCollider: {fileID: 6311907189735979390}
+  animator: {fileID: 0}
+  Projectile: {fileID: 0}
+--- !u!114 &1032281763895290480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2944230112460559880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec636d2c04e89f044b862d99c33606c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+--- !u!114 &4274703001094985934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2944230112460559880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e284a8803e9b847b0cd410e8bd11c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpStrength: 7
+  feetCollider: {fileID: 6311907189735979390}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 1591
+--- !u!114 &3955520342396342033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2944230112460559880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9498a4a7e82efb54da840299d6997f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keybind: 308
+  projectilePrefab: {fileID: 7208521463686257009, guid: b1240d4e3ad2adb428569e534dde95b3,
+    type: 3}
+  spawnOffset: {x: 0.1, y: 0}
+  projectileSpeed: 10
+--- !u!114 &2819902824036448336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2944230112460559880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e77c41c8696b2042acb2adc46e2d6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointPosition: {x: 0, y: 0, z: 0}
+  afterDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  afterRespawn:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
