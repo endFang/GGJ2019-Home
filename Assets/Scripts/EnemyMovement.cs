@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
 
     private float distance;
     private float minDistance;
+    private Vector3 otherColl;
     int wayPointIndex = 0;
 
 
@@ -47,8 +48,10 @@ public class EnemyMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        
         if (other.collider.CompareTag("Player")){
-            Destroy(other.gameObject);
+            otherColl = other.collider.GetComponent<Rigidbody2D>().velocity;
+            other.collider.GetComponent<Rigidbody2D>().velocity = -2 * otherColl;
         }
       
 
