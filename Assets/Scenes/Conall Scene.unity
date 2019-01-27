@@ -1955,7 +1955,7 @@ GameObject:
   - component: {fileID: 1348133308}
   - component: {fileID: 1348133307}
   m_Layer: 0
-  m_Name: Home (Square Key)
+  m_Name: Home (Wall Jump)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5003,7 +5003,7 @@ GameObject:
   - component: {fileID: 1913641006}
   - component: {fileID: 1913641005}
   m_Layer: 0
-  m_Name: Home (Circle Key)
+  m_Name: Home (Shooting)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
