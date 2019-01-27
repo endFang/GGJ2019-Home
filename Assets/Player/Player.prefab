@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4274703001094985934}
   - component: {fileID: 3955520342396342033}
   - component: {fileID: 2819902824036448336}
-  - component: {fileID: 8766869555594199578}
+  - component: {fileID: 1765596413}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 2944230112460559880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.016, y: 0.92, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -122,7 +122,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0067025274}
+  m_Offset: {x: 0.0016067624, y: -0.0018667579}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -133,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.18659493}
+  m_Size: {x: 0.11109364, y: 0.16945636}
   m_EdgeRadius: 0
 --- !u!70 &6311907189735979390
 CapsuleCollider2D:
@@ -148,7 +148,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.002010774, y: -0.09324726}
+  m_Offset: {x: -0.002010774, y: -0.08}
   m_Size: {x: 0.107392415, y: 0.013606148}
   m_Direction: 1
 --- !u!114 &2944230112460559881
@@ -237,7 +237,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!95 &8766869555594199578
+--- !u!95 &1765596413
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
