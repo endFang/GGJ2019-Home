@@ -39,9 +39,4 @@ public class GameManager : MonoBehaviour
 		keyBits |= 1 << (int) key;
 		afterCollectKey.Invoke();
 	}
-
-	public bool HasAllKeys()
-	{
-		return Enum.GetValues(typeof(PlayerKey)).Cast<PlayerKey>().All(HasKey);
-	}
 }
