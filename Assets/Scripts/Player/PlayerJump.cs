@@ -7,18 +7,21 @@ public class PlayerJump : MonoBehaviour
 	public LayerMask groundMask;
 	public bool grounded { get; private set; }
 	private Rigidbody2D rb2d;
+    public bool hasWallJumped;
 
 	private void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
-	}
+        hasWallJumped = false;
+    }
 
 	private void Update()
 	{
-		if (Input.GetKey(KeyCode.Space) && grounded)
+		if (Input.GetKeyDown(KeyCode.Space) && grounded)
 		{
 			rb2d.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
 			grounded = false;
+            
 		}
 	}
 
@@ -38,10 +41,16 @@ public class PlayerJump : MonoBehaviour
 				groundMask
 			);
 
-			if (hit.collider != null && hit.collider.CompareTag("Ground"))
-			{
-				grounded = true;
-			}
+            if (hit.collider != null && hit.collider.CompareTag("Ground"))
+            {
+                grounded = true;
+                hasWallJumped = false;
+            }
+            else if (!hasWallJumped && Input.GetKeyDown(KeyCode.Space))
+            {
+                rb2d.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
+                hasWallJumped = true;
+            }
 		}
 	}
 
