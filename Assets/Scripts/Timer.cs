@@ -20,7 +20,11 @@ public class Timer : MonoBehaviour
     void Update()
     {
 		timeElapsed += Time.deltaTime;
-		tmpg.text = string.Format("Timer: {0:0.00}", timeElapsed);
+
+		string minutes = Mathf.Floor(timeElapsed / 60).ToString("00");
+		string seconds = (timeElapsed % 60).ToString("00");
+
+		tmpg.text = string.Format("Timer: {0}:{1}", minutes, seconds);
         
     }
 }
