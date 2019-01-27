@@ -162,12 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42f484a78eea0a4a9636f8beab0aaf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rgdbdy2: {fileID: 2944230112460559886}
-  jumpForce: 5
-  moveHorizontal: 1
-  playerfeetCollider: {fileID: 6311907189735979390}
-  animator: {fileID: 0}
-  Projectile: {fileID: 0}
+  enableInEditor: 1
+  mtth: 10
 --- !u!114 &1032281763895290480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,11 +189,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e284a8803e9b847b0cd410e8bd11c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keybind: 32
   jumpStrength: 7
   feetCollider: {fileID: 6311907189735979390}
   groundMask:
     serializedVersion: 2
     m_Bits: 1591
+  hasWallJumped: 0
 --- !u!114 &3955520342396342033
 MonoBehaviour:
   m_ObjectHideFlags: 0

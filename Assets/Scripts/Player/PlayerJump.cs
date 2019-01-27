@@ -2,12 +2,14 @@
 
 public class PlayerJump : MonoBehaviour
 {
+	public KeyCode keybind = KeyCode.Space;
 	public float jumpStrength = 7f;
 	public Collider2D feetCollider;
 	public LayerMask groundMask;
 	public bool grounded { get; private set; }
-	private Rigidbody2D rb2d;
     public bool hasWallJumped;
+    
+	private Rigidbody2D rb2d;
 
 	private void Start()
 	{
@@ -17,7 +19,7 @@ public class PlayerJump : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space) && grounded)
+		if (Input.GetKeyDown(keybind) && grounded)
 		{
 			rb2d.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
 			grounded = false;
