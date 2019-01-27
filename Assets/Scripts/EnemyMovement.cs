@@ -46,12 +46,15 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
-    void OnCollisionEnter2D(Collision2D other)
+    IEnumerator OnCollisionEnter2D(Collision2D other)
     {
         
         if (other.collider.CompareTag("Player")){
             otherColl = other.collider.GetComponent<Rigidbody2D>().velocity;
             other.collider.GetComponent<Rigidbody2D>().velocity = -2 * otherColl + (Vector3)this.GetComponent<Rigidbody2D>().velocity;
+            other.collider.GetComponent<PlayerMove>().enabled = false;
+            yield return new WaitForSeconds(2);
+            other.collider.GetComponent<PlayerMove>().enabled = true;
         }
       
 
