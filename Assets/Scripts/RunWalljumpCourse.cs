@@ -90,15 +90,3 @@ public class RunWalljumpCourse : MonoBehaviour
 		rb2d.velocity = new Vector2(0, rb2d.velocity.y);
 	}
 }
-
-//public class LayerSelectAttribute : PropertyAttribute
-//{}
-//
-//[CustomPropertyDrawer(typeof(LayerSelectAttribute))]
-//public class LayerSelectDrawer : PropertyDrawer
-//{
-//	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-//	{
-//		property.intValue = EditorGUI.LayerField(position, label.text, property.intValue);
-//	}
-//}
