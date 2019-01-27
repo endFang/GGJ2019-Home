@@ -15,7 +15,6 @@ public class TitleScreen : MonoBehaviour {
     public void CreditButton()
     {
         creditPanel.SetActive(true);
-        Debug.Log("activate credit panel");
     }
 
     public void QuitButton()

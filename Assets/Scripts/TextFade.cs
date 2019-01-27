@@ -62,7 +62,6 @@ public class TextFade : MonoBehaviour
             {
                 end();
             }
-
             if (fadeOut)
             {
                 if (outTimer == fadeTime)
