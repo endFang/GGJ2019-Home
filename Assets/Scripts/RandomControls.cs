@@ -11,6 +11,7 @@ public class RandomControls : MonoBehaviour
     private Vector3 velocityY;
     private int layerMask;
     public Animator animator;
+    public GameObject Projectile;
 
     bool isGrounded = false;
 
@@ -29,7 +30,7 @@ public class RandomControls : MonoBehaviour
     {
         move();
         jump();
-    
+        shoot();
     }
     void jump()
     {
@@ -55,6 +56,17 @@ public class RandomControls : MonoBehaviour
             }
         }
         
+    }
+
+
+    void shoot()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            Vector3 startPos = new Vector3(this.transform.position.x + .05f, this.transform.position.y, this.transform.position.z );
+            GameObject newProj = (GameObject)Instantiate(Projectile, startPos, Quaternion.identity);
+            newProj.GetComponent<Rigidbody2D>().velocity = new Vector3(rgdbdy2.velocity.x * 2, 0, 0);
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
