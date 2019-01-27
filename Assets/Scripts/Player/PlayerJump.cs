@@ -32,6 +32,11 @@ public class PlayerJump : MonoBehaviour
 		anim.SetBool(isJumpKey, !grounded);
 	}
 
+	public void EnableWallJump()
+	{
+		canWallJump = true;
+	}
+
 	private void OnCollisionStay2D(Collision2D other)
 	{
 		if (other.gameObject.CompareTag("Ground") && !grounded)
