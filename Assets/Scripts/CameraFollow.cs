@@ -1,19 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
 	public Transform player;
 
-    void Start()
-    {
-        transform.position = player.transform.position;
-    }
+	void LateUpdate()
+	{
+		Transform t = transform;
+		Vector3 newPosition = player.position;
+		newPosition.z = t.position.z;
 
-
-    void LateUpdate()
-    {
-        transform.position = player.transform.position;
-    }
-}   
+		t.position = newPosition;
+	}
+}
