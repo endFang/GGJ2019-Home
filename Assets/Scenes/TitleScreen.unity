@@ -325,7 +325,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '<b>Programmer</b>
+  m_Text: '<b>Programmers</b>
 
 
     Kevin Touch
@@ -660,7 +660,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '<b>Deisnger</b>
+  m_Text: '<b>Designer</b>
 
 
     Conall Barrett'
@@ -1512,7 +1512,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '<b>Artist</b>
+  m_Text: '<b>Artists</b>
 
 
     Jack Sun

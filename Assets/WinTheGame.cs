@@ -1,33 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using UnityEngine;
 
 public class WinTheGame : MonoBehaviour
 {
-    public GameObject winText;
+	public GameObject winText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.collider.CompareTag("Player") && GameObject.Find("Enemy(Clone)") == null)
+		{
+			Victory();
+		}
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player") && GameObject.Find("Enemy(Clone)") == null)
-        {
-            ShowYouWin();
-        }
-    }
-    void ShowYouWin()
-    {
-        winText.SetActive(true);
-        Time.timeScale = 0;
-        
-    }
+	void Victory()
+	{
+		winText.SetActive(true);
+		Time.timeScale = 0;
+		Timer.instance.ClearTimer();
+	}
 }
