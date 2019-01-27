@@ -14,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 otherColl;
     int wayPointIndex = 0;
     public int HP;
+    private PlayerMove Movement;
 
 
     // Start is called before the first frame update
@@ -52,10 +53,11 @@ public class EnemyMovement : MonoBehaviour
         
         if (other.collider.CompareTag("Player")){
             otherColl = other.collider.GetComponent<Rigidbody2D>().velocity;
-            other.collider.GetComponent<Rigidbody2D>().velocity = -1.2f * otherColl + (Vector3)this.GetComponent<Rigidbody2D>().velocity;
-            other.collider.GetComponent<PlayerMove>().enabled = false;
-            yield return new WaitForSeconds(.5f);
-            other.collider.GetComponent<PlayerMove>().enabled = true;
+            other.collider.GetComponent<Rigidbody2D>().velocity = -2f * otherColl + (Vector3)this.GetComponent<Rigidbody2D>().velocity;
+            Movement = other.collider.GetComponent<PlayerMove>();
+            Movement.enabled = false;
+            yield return new WaitForSeconds(1.25f);
+            Movement.enabled = true;
         }
         if (other.collider.CompareTag("Destroyer"))
         {
