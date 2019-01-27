@@ -10,6 +10,7 @@ public class RandomControls : MonoBehaviour
     public Collider2D playerfeetCollider;
     private Vector3 velocityY;
     private int layerMask;
+    public Animator animator;
 
     bool isGrounded = false;
 
@@ -34,8 +35,10 @@ public class RandomControls : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && isGrounded == true)
         {
+            animator.SetBool("IsJump", true);
             rgdbdy2.AddForce(new Vector3(0.0f, jumpForce, 0.0f), ForceMode2D.Impulse);//jump
             isGrounded = false;
+            
         }
     }
 
@@ -48,6 +51,7 @@ public class RandomControls : MonoBehaviour
             if (feetSensor && feetSensor.collider.CompareTag("Ground"))
             {
                 isGrounded = true;
+                animator.SetBool("IsJump", false);
             }
         }
         
@@ -64,10 +68,18 @@ public class RandomControls : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             rgdbdy2.velocity = new Vector3(moveHorizontal, rgdbdy2.velocity.y, 0);
+            animator.SetFloat("Speed", moveHorizontal);
+            animator.SetBool("IsTurnt", false);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             rgdbdy2.velocity = new Vector3(-moveHorizontal, rgdbdy2.velocity.y, 0);
+            animator.SetFloat("Speed", moveHorizontal);
+            animator.SetBool("IsTurnt", true);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
         }
     }
 }
