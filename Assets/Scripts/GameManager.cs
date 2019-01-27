@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.Events;
 
-public enum UnlockKey
+public enum PlayerKey
 {
 	Square,
 	Circle,
@@ -9,9 +12,10 @@ public enum UnlockKey
 
 public class GameManager : MonoBehaviour
 {
-	public GameManager instance;
+	public static GameManager instance;
 
 	private int keyBits;
+	public UnityEvent afterCollectKey;
 
 	private void Awake()
 	{
@@ -26,13 +30,19 @@ public class GameManager : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 
-	public bool HasKey(UnlockKey key)
+	public bool HasKey(PlayerKey key)
 	{
 		return (keyBits & (1 << (int) key)) != 0;
 	}
 
-	public void AddKey(UnlockKey key)
+	public void AddKey(PlayerKey key)
 	{
 		keyBits |= 1 << (int) key;
+		afterCollectKey.Invoke();
+	}
+
+	public bool HasAllKeys()
+	{
+		return Enum.GetValues(typeof(PlayerKey)).Cast<PlayerKey>().All(HasKey);
 	}
 }
