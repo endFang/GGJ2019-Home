@@ -10,5 +10,10 @@ public class TitleScreen : MonoBehaviour {
         SceneManager.LoadScene("Conall Scene");
 
     }
+
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
  
 }

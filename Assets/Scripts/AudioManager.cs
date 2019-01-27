@@ -5,14 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance = null;
 
     public AudioClip menuMusic;
     public AudioClip gameMusic;
     public AudioSource musicSource;
-
-    public static AudioManager instance = null;
-    public float lowPitchRange = .3f;
-    public float highPitchRange = 1f;
 
     private string sceneName;
     private string prevSceneName;
@@ -55,9 +52,7 @@ public class AudioManager : MonoBehaviour
         }
         else if (sceneName == "Conall Scene" && !playing)
         {
-            Debug.Log("here");
             PlayMusic(gameMusic);
-            Debug.Log("playing");
             playing = true;
         }
 
