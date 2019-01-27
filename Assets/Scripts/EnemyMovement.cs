@@ -52,9 +52,9 @@ public class EnemyMovement : MonoBehaviour
         
         if (other.collider.CompareTag("Player")){
             otherColl = other.collider.GetComponent<Rigidbody2D>().velocity;
-            other.collider.GetComponent<Rigidbody2D>().velocity = -2 * otherColl + (Vector3)this.GetComponent<Rigidbody2D>().velocity;
+            other.collider.GetComponent<Rigidbody2D>().velocity = -1.2f * otherColl + (Vector3)this.GetComponent<Rigidbody2D>().velocity;
             other.collider.GetComponent<PlayerMove>().enabled = false;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(.5f);
             other.collider.GetComponent<PlayerMove>().enabled = true;
         }
         if (other.collider.CompareTag("Destroyer"))
