@@ -10,12 +10,10 @@ public class TextFade : MonoBehaviour
     public bool fadeOut;
     public bool fadeIn;
 
-
     public float fadeTime;
     public float outTimer;
     public float inTimer;
 
-    
 
     public Text[] allCreditText;
     private int totalText;
@@ -25,7 +23,6 @@ public class TextFade : MonoBehaviour
 
     public void Start()
     {
-        allCreditText[0].enabled = true;
         ctIndex = 0;
         totalText = allCreditText.Length - 1;
         
@@ -34,6 +31,7 @@ public class TextFade : MonoBehaviour
         fadeOut = false;
         fadeIn = true;        
     }
+
 
     public void begin()
     {
@@ -60,6 +58,11 @@ public class TextFade : MonoBehaviour
     {
         if (trigger)
         {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                end();
+            }
+
             if (fadeOut)
             {
                 if (outTimer == fadeTime)
@@ -106,7 +109,6 @@ public class TextFade : MonoBehaviour
                 }
             }
         }
-
     }
 
     
@@ -114,7 +116,6 @@ public class TextFade : MonoBehaviour
     {
         StartCoroutine(fadeOutRoutine());
     }
-
     private IEnumerator fadeOutRoutine()
     {
         Color originalColor = allCreditText[ctIndex].color;
@@ -129,8 +130,6 @@ public class TextFade : MonoBehaviour
     {
         StartCoroutine(fadeInRoutine());
     }
-
-
     private IEnumerator fadeInRoutine()
     {
         Color originalColor = allCreditText[ctIndex].color;
