@@ -5,9 +5,8 @@ using UnityEngine.Events;
 
 public enum PlayerKey
 {
-	Square,
 	Circle,
-	Triangle
+	Square,
 }
 
 public class GameManager : MonoBehaviour
