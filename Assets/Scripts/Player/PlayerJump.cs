@@ -53,7 +53,7 @@ public class PlayerJump : MonoBehaviour
                 hasWallJumped = false;
             }
             
-            else if (!hasWallJumped && Input.GetKeyDown(KeyCode.Space))
+            else if (!hasWallJumped && Input.GetKeyDown(keybind))
             {
                 rb2d.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
                 hasWallJumped = true;
