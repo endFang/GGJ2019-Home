@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     private float minDistance;
     private Vector3 otherColl;
     int wayPointIndex = 0;
+    public int HP;
 
 
     // Start is called before the first frame update
@@ -56,7 +57,17 @@ public class EnemyMovement : MonoBehaviour
             yield return new WaitForSeconds(2);
             other.collider.GetComponent<PlayerMove>().enabled = true;
         }
-      
+        if (other.collider.CompareTag("Destroyer"))
+        {
+            HP--;
+            this.GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSeconds(.25f);
+            this.GetComponent<SpriteRenderer>().enabled = true;
+            if (HP == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
 
     }
 }
