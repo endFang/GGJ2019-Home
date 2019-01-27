@@ -38,9 +38,19 @@ public class EnemyMovement : MonoBehaviour
         }
        
     }
-
+   
     void move()
     {
        transform.position = Vector2.MoveTowards(transform.position, wayPoints[wayPointIndex].transform.position, movespeed * Time.deltaTime);
+    }
+
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.CompareTag("Player")){
+            Destroy(other.gameObject);
+        }
+      
+
     }
 }
