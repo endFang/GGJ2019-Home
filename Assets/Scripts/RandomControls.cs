@@ -69,11 +69,13 @@ public class RandomControls : MonoBehaviour
         {
             rgdbdy2.velocity = new Vector3(moveHorizontal, rgdbdy2.velocity.y, 0);
             animator.SetFloat("Speed", moveHorizontal);
+            animator.SetBool("IsTurnt", false);
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             rgdbdy2.velocity = new Vector3(-moveHorizontal, rgdbdy2.velocity.y, 0);
             animator.SetFloat("Speed", moveHorizontal);
+            animator.SetBool("IsTurnt", true);
         }
         else
         {
