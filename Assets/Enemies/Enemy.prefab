@@ -117,8 +117,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rgdbdy2: {fileID: 6641623581855743521}
-  wayPoints: []
-  movespeed: 1
+  wayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  movespeed: 2.05
   HP: 40
 --- !u!95 &1576506805699010094
 Animator:
