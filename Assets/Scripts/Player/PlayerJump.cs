@@ -8,6 +8,7 @@ public class PlayerJump : MonoBehaviour
 	public LayerMask groundMask;
 	public bool grounded { get; private set; }
     public bool hasWallJumped;
+    public bool canWallJump;
     
 	private Rigidbody2D rb2d;
 	private Animator anim;
@@ -52,8 +53,7 @@ public class PlayerJump : MonoBehaviour
                 grounded = true;
                 hasWallJumped = false;
             }
-            
-            else if (!hasWallJumped && Input.GetKeyDown(keybind))
+            else if (canWallJump && !hasWallJumped && Input.GetKeyDown(keybind))
             {
                 rb2d.AddForce(new Vector2(0, jumpStrength), ForceMode2D.Impulse);
                 hasWallJumped = true;
