@@ -142,5 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rgdbdy2: {fileID: 6641623581855743521}
+  wayPoints: []
   movespeed: 1
-  maxDistance: {x: 0, y: 0}
+  HP: 40
