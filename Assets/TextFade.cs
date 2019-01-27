@@ -11,7 +11,7 @@ public class TextFade : MonoBehaviour
     public bool fadeIn;
 
 
-    public float fadeTime = 2f;
+    public float fadeTime;
     public float outTimer;
     public float inTimer;
 
@@ -28,19 +28,26 @@ public class TextFade : MonoBehaviour
         allCreditText[0].enabled = true;
         ctIndex = 0;
         totalText = allCreditText.Length - 1;
-        trigger = true;
         
         inTimer = fadeTime;
         outTimer = fadeTime;
-        fadeOut = true;
-        fadeIn = false;
-
-        
+        fadeOut = false;
+        fadeIn = true;        
     }
 
     public void begin()
     {
+        gameObject.SetActive(true);
         trigger = true;
+
+        allCreditText[0].enabled = true;
+        ctIndex = 0;
+        totalText = allCreditText.Length - 1;
+        
+        inTimer = fadeTime;
+        outTimer = fadeTime;
+        fadeOut = false;
+        fadeIn = true;        
     }
 
     public void end()
@@ -53,7 +60,6 @@ public class TextFade : MonoBehaviour
     {
         if (trigger)
         {
-            // Debug.Log(outTimer);
             if (fadeOut)
             {
                 if (outTimer == fadeTime)
@@ -61,11 +67,11 @@ public class TextFade : MonoBehaviour
                     fadeOutCall();
                     outTimer -= Time.deltaTime;
                 }
-                else if (outTimer < fadeTime && outTimer > 0f)
+                else if (outTimer < fadeTime && outTimer > -0.5f)
                 {
                     outTimer -= Time.deltaTime;
                 }
-                else if (outTimer <= 0f)
+                else if (outTimer <= -0.5f)
                 {
                     if (ctIndex <= totalText-1)
                     {
@@ -88,23 +94,20 @@ public class TextFade : MonoBehaviour
                     fadeInCall();
                     inTimer -= Time.deltaTime;
                 }
-                else if (inTimer < fadeTime && inTimer > 0f)
+                else if (inTimer < fadeTime && inTimer > -0.5f)
                 {
                     inTimer -= Time.deltaTime;
                 }
-                else if (inTimer <= 0f)
+                else if (inTimer <= -0.5f)
                 {
                     fadeOut = true;
                     fadeIn = false;
                     inTimer = fadeTime;
                 }
             }
-
         }
 
     }
-
-        
 
     
     public void fadeOutCall()
@@ -137,6 +140,5 @@ public class TextFade : MonoBehaviour
             yield return null;
         }
     }
-
 
 }
