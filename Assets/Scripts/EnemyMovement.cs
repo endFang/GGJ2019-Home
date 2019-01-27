@@ -6,10 +6,11 @@ public class EnemyMovement : MonoBehaviour
 {
     public Rigidbody2D rgdbdy2;
     
-    Transform[] wayPoints;
+    public List<Transform> wayPoints = new List<Transform>();
     public float movespeed;
-    public Vector2 maxDistance;
 
+    private float distance;
+    private float minDistance;
     int wayPointIndex = 0;
 
 
@@ -17,16 +18,29 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         transform.position = wayPoints[wayPointIndex].transform.position;
+        minDistance = 1.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         move();
+        distance = Vector3.Distance(transform.position, wayPoints[wayPointIndex].position);
+        checkWaypoint(distance);
+    }
+
+    void checkWaypoint(float distance)
+    {
+        if(distance <= minDistance)
+        {
+            wayPointIndex = (wayPointIndex == 0) ? 1 : 0;
+
+        }
+       
     }
 
     void move()
     {
-       // transform.position = Vector2.MoveTowards(transform.position, wayPoints[wayPointIndex].transform.position, movespeed * Time.deltaTime);
+       transform.position = Vector2.MoveTowards(transform.position, wayPoints[wayPointIndex].transform.position, movespeed * Time.deltaTime);
     }
 }
