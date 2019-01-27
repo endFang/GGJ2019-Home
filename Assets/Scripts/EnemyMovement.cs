@@ -65,7 +65,7 @@ public class EnemyMovement : MonoBehaviour
             this.GetComponent<SpriteRenderer>().enabled = false;
             yield return new WaitForSeconds(.25f);
             this.GetComponent<SpriteRenderer>().enabled = true;
-            if (HP == 0)
+            if (HP <= 0)
             {
                 Destroy(gameObject);
             }
